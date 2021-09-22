@@ -1,0 +1,37 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <main class="container">
+      <!-- method="post" foi removido apenas para o exemplo funcionar sem o servidor -->
+      <form class="form-card" method = "post">
+        {% csrf_token %}
+        <input
+          class="form-card-title"
+          type="text"
+          name="titulo"
+          placeholder="Título"
+          id="titulo"
+        />
+        <textarea
+          class="autoresize"
+          name="detalhes"
+          placeholder="Digite o conteúdo..."
+          id = "detalhes"
+        ></textarea>
+        <input
+        class="form-card-tag"
+        type="text"
+        name="tag"
+        placeholder="Tag"
+        id="tag"
+      />
+        <button class="btn" type="submit" >Criar</button>
+      </form>
+
+      <div class="card-container">
+        {% block note %} {% endblock %}
+      </div>
+    </main>
+    {% endblock %}

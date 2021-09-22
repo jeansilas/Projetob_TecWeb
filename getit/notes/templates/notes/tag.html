@@ -1,0 +1,10 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+{% for tag in tags %}
+<div class="card-container">
+    <a href ="tag-{{tag}}" class="tag_1">{{tag}}</a>
+  </div>
+    {% endfor %}
+    {% endblock %}

@@ -1,0 +1,20 @@
+{% extends "notes/index.html" %}
+{% block note %}
+{% for note in notes %}
+<div class="card-container">
+<form method="POST" action="update" class="card" effect="card" id = {{note.id}} >
+    {% csrf_token %}
+    <textarea class="intitle" name="titulo">{{note.title}} </textarea>
+    <textarea class ="incontent" name="detalhes" >{{note.content}}</textarea>
+    <textarea class = "incontent" name="tag">{{note.tag}}</textarea>
+    <div class="editables">
+      <button class="edit"   name = id_update action="update" value={{note.id}} >Salvar</button>
+    </form>
+    <form method="POST" action="delete">
+      {% csrf_token %}
+      <button class="edit" type="submit"  action="delete"  name = id_delete value ={{note.id}} >X</button>
+    </form>
+    </div>
+  </div>
+  {% endfor %}
+  {% endblock %}

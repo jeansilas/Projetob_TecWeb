@@ -1,0 +1,15 @@
+{% extends "notes/index.html" %}
+{% block note %}
+{% for note in notes %}
+<div class="card"  id = {{note.id}} >
+    <h3 class="card-title">{{note.title}}</h3>
+    <div class="card-content">
+      <p>
+        {{note.content}}
+      </p>
+    </div>
+    <button class="edit"  onclick="edit()" name = {{note.id}} >Editar</button>
+    <a href ="tag-{{note.tag}}" class="tag" name = {{note.id}} >{{note.tag}}</a>
+  </div>
+  {% endfor %}
+  {% endblock %}
